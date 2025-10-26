@@ -1,0 +1,236 @@
+:root {
+    /* Define Color Variables */
+    --primary-color: #3f51b5; /* Indigo */
+    --secondary-color: #757575;
+    --background-color: #e8eaf6;
+    --card-background: #ffffff;
+    --input-background: #f5f5f5;
+    --text-color: #212121;
+    
+    /* Strength Colors */
+    --strength-very-weak: #e74c3c;
+    --strength-medium: #ffc107;
+    --strength-strong: #4CAF50;
+    --strength-very-strong: #008000;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: var(--primary-color);
+}
+
+.generator-card {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Result Display */
+.result-display {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#password-output {
+    flex-grow: 1;
+    padding: 18px 15px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.2em;
+    border: none;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    cursor: default;
+}
+
+.copy-btn {
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.copy-btn:hover {
+    background-color: #303f9f;
+}
+
+/* Strength Indicator */
+.strength-indicator {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ddd;
+    margin-bottom: 30px;
+}
+
+.strength-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.strength-bar {
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease-out, background-color 0.5s ease-out;
+}
+
+.entropy-display {
+    text-align: right;
+    font-size: 0.9em;
+    font-family: 'Roboto Mono', monospace;
+    color: var(--secondary-color);
+    margin-top: 5px;
+}
+
+#entropy-value {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Controls and Slider */
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--input-background);
+}
+
+.slider-group {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.slider-group label {
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+/* Toggle Switch Styling */
+.toggle-group {
+    cursor: pointer;
+}
+
+.toggle-group label {
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.toggle-switch:after {
+    content: '';
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background-color: var(--card-background);
+    top: 2px;
+    left: 2px;
+    transition: left 0.3s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.toggle-group input:checked ~ .toggle-switch {
+    background-color: var(--primary-color);
+}
+
+.toggle-group input:checked ~ .toggle-switch:after {
+    left: 22px;
+}
+
+/* Mandatory Switch Look */
+.toggle-switch.mandatory-switch {
+    background-color: #6a6a6a;
+    cursor: default;
+}
+.special-setting .alert-label {
+    color: #e67e22; /* Ambiguity warning color */
+}
+
+/* Generate Button */
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+/* Message Box (same as previous advanced version) */
+.message-box {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    min-height: 20px;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.message-box.show { opacity: 1; }
